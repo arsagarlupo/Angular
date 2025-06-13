@@ -18,13 +18,41 @@ import { AdduserComponent } from './adduser/adduser.component';
   providers:[MyServiceService]
 })
 export class AppComponent  {
-  msg!:string ;
-  users:{name:string,status:string}[]=[];
-  constructor(private userService:MyServiceService){}
-  ngOnInit(): void {
-    this.users = this.userService.users;
 
+  studentName: string = '';
+  studentGrade: string = '';
+  students: { name: string, grade: string }[] = [];
+
+  addStudent(nameInput: HTMLInputElement, gradeInput: HTMLInputElement) {
+    if (this.studentName.trim() && this.studentGrade.trim()) {
+      this.students.push({
+        name: this.studentName.trim(),
+        grade: this.studentGrade.trim().toUpperCase()
+      });
+      this.studentName = '';
+      this.studentGrade = '';
+      nameInput.value = '';
+      gradeInput.value = '';
+    }
   }
+
+  getGradeClass(grade: string): string {
+    switch (grade) {
+      case 'A': return 'grade-a';
+      case 'B': return 'grade-b';
+      case 'C': return 'grade-c';
+      default: return '';
+    }
+  }
+
+
+  // msg!:string ;
+  // users:{name:string,status:string}[]=[];
+  // constructor(private userService:MyServiceService){}
+  // ngOnInit(): void {
+  //   this.users = this.userService.users;
+
+  // }
   // onToggle=true;
   
   // naam:string="";

@@ -1,22 +1,60 @@
+<div class="container">
+  <h1>Student Dashboard</h1>
+
+  <div class="form">
+    <input type="text" placeholder="Enter Name" [(ngModel)]="studentName" #nameInput />
+    <input type="text" placeholder="Enter Grade" [(ngModel)]="studentGrade" #gradeInput />
+    <button (click)="addStudent(nameInput, gradeInput)">Add Student</button>
+  </div>
+
+  <div *ngIf="students.length === 0" class="no-students">
+    No students were found.
+  </div>
+
+  <ul *ngIf="students.length > 0">
+    <li *ngFor="let student of students" [ngClass]="getGradeClass(student.grade)">
+      {{ student.name }} - Grade: {{ student.grade }}
+      <span [ngSwitch]="student.grade">
+        <span *ngSwitchCase="'A'">🟢 Excellent</span>
+        <span *ngSwitchCase="'B'">🟡 Good</span>
+        <span *ngSwitchCase="'C'">🔴 Needs Improvement</span>
+        <span *ngSwitchDefault>⚪ Unknown</span>
+      </span>
+    </li>
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- <app-parent>
     
 </app-parent> -->
 <!-- <br> -->
- <app-adduser></app-adduser>
+ <!-- <app-adduser></app-adduser>
  
 <div *ngFor = "let user of users">
     <div>{{user.name}}</div>
     <div>{{user.status}}</div>
-</div>
+</div> -->
 <!-- <app-child></app-child> -->
 
 <!-- <h1>Component</h1> -->
 
 
+<!-- 
 
 
-
-<!-- <h1>Name</h1>
+<h1>Name</h1>
 
 <input type="text" [(ngModel)]="naam">
 
@@ -28,9 +66,9 @@
 </div>
  <div *ngIf="naam !== '' ">
     <div *ngSwitch="grade">
-        <p *ngSwitchCase="'A'">
-                <h1>sdfghjkl</h1>
-        </p>
+        <!-- <p *ngSwitchCase="'A'">
+                <!-- <h1>sdfghjkl</h1> -->
+        <!-- </p>
     </div>
     <ul>
         <li *ngFor="let student of studentlist" >
@@ -38,12 +76,11 @@
         </li>
         
     </ul>
-</div> -->
+</div>  -->
 
 
-
-
-<!-- <h1>Name:</h1>
+<!-- 
+<h1>Name:</h1>
 <input #name [(ngModel)]="naam" type="text"/>
 <h1>Subject:</h1>
 <input #name [(ngModel)]="subject" type="text"/>
@@ -53,9 +90,9 @@
 <input #name [(ngModel)]="marks2" type="text"/>
 <br> <br>
 <button (click)="onTotal()">Submit</button>
-<p>Hello {{naam}}! Your marks in {{subject}} is {{total}}.</p>
+<p>Hello {{naam}}! Your marks in {{subject}} is {{total}}.</p> -->
 
-<router-outlet/>
+<!-- <router-outlet/>
 
 <h1>Counter</h1>
 
