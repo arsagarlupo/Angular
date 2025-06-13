@@ -2,22 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import {RouterOutlet} from '@angular/router';
-import { ParentComponent } from '../parent/parent.component';
-import { DirectiveoneDirective } from './directiveone.directive';
-import { MyServiceService } from './my-service.service';
-import { AdduserComponent } from './adduser/adduser.component';
-// import { AdduserComponent } from './adduser/adduser.component';
-// import { ChildComponent } from '../child/child.component';
-// import { AppComponent } from './app.component';
+
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,FormsModule,CommonModule,ParentComponent,DirectiveoneDirective,AdduserComponent],
+  imports: [RouterOutlet,FormsModule,CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
-  providers:[MyServiceService]
+  providers:[]
 })
 export class AppComponent  {
+
+
 
   studentName: string = '';
   studentGrade: string = '';
